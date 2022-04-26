@@ -109,27 +109,53 @@ Please be aware that this is mainly a copy operation which means all your curren
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.8.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | n/a |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_this_label"></a> [this\_label](#module\_this\_label) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.0 |
+| <a name="module_this_label_snapshot"></a> [this\_label\_snapshot](#module\_this\_label\_snapshot) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.0 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_db_instance.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance) | resource |
+| [aws_db_option_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_option_group) | resource |
+| [aws_db_parameter_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_parameter_group) | resource |
+| [aws_db_subnet_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group) | resource |
+| [random_password.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+| [random_string.this_snapshot](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_backup"></a> [backup](#input\_backup) | The backup configuration for the RDS instance | <pre>object({<br>    enabled        = bool<br>    retention_days = number<br>  })</pre> | n/a | yes |
 | <a name="input_context"></a> [context](#input\_context) | Default context for naming and tagging purpose | <pre>object({<br>    organization = string<br>    environment  = string<br>    account      = string<br>    product      = string<br>    tags         = map(string)<br>  })</pre> | n/a | yes |
+| <a name="input_enable_performance_insights"></a> [enable\_performance\_insights](#input\_enable\_performance\_insights) | Whether to enable Performance Insights | `bool` | n/a | yes |
+| <a name="input_instance"></a> [instance](#input\_instance) | The RDS instance to create | <pre>object({<br>    type                 = string<br>    engine               = string<br>    engine_version       = string<br>    major_engine_version = string<br>    family               = string<br>    multi_az             = bool<br>    publicly_accessible  = bool<br>    deletion_protection  = bool<br>    allow_upgrades       = bool<br>    port                 = number<br>  })</pre> | n/a | yes |
+| <a name="input_logging"></a> [logging](#input\_logging) | The logging configuration for the RDS instance | <pre>object({<br>    enabled = bool<br>    types   = set(string)<br>  })</pre> | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the RDS instance | `string` | n/a | yes |
+| <a name="input_parameters"></a> [parameters](#input\_parameters) | The parameters to pass to the RDS instance | `map(string)` | n/a | yes |
+| <a name="input_storage"></a> [storage](#input\_storage) | The storage configuration for the RDS instance | <pre>object({<br>    max_allocated_storage = number<br>    allocated_storage     = number<br>    kms_arn               = string<br>  })</pre> | n/a | yes |
+| <a name="input_vpc"></a> [vpc](#input\_vpc) | The VPC to create the RDS instance in | <pre>object({<br>    id              = string<br>    subnets         = list(string)<br>    security_groups = list(string)<br>  })</pre> | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
+| <a name="output_auth"></a> [auth](#output\_auth) | Exported auth information for passing between modules |
 | <a name="output_context"></a> [context](#output\_context) | Exported context from input variable |
+| <a name="output_db_instance"></a> [db\_instance](#output\_db\_instance) | Exported output from aws\_db\_instance |
+| <a name="output_option_group"></a> [option\_group](#output\_option\_group) | Exported output from aws\_db\_option\_group |
+| <a name="output_parameter_group"></a> [parameter\_group](#output\_parameter\_group) | Exported output from aws\_db\_parameter\_group |
+| <a name="output_subnet_group"></a> [subnet\_group](#output\_subnet\_group) | Exported output from aws\_db\_subnet\_group |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 <!-- markdownlint-disable -->
 <!-- prettier-ignore-end -->
