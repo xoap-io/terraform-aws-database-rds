@@ -20,7 +20,7 @@ output "subnet_group" {
 }
 output "auth" {
   value = {
-    host     = aws_db_instance.this.endpoint
+    host     = aws_db_instance.this.address
     port     = aws_db_instance.this.port
     username = aws_db_instance.this.username
     password = aws_db_instance.this.password
