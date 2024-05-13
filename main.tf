@@ -2,7 +2,7 @@ locals {
   admin_user = "installer"
 }
 module "this_label" {
-  source     = "git::github.com/xoap-io/terraform-aws-misc-label?ref=v0.1.0"
+  source     = "git::github.com/xoap-io/terraform-aws-misc-label?ref=v0.1.1"
   context    = var.context
   attributes = [var.instance.engine, var.name]
 }
@@ -11,7 +11,7 @@ resource "random_string" "this_snapshot" {
   special = false
 }
 module "this_label_snapshot" {
-  source     = "git::github.com/xoap-io/terraform-aws-misc-label?ref=v0.1.0"
+  source     = "git::github.com/xoap-io/terraform-aws-misc-label?ref=v0.1.1"
   context    = var.context
   attributes = ["snapshot", var.instance.engine, var.name, random_string.this_snapshot.result]
 }

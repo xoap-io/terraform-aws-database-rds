@@ -118,8 +118,8 @@ Please be aware that this is mainly a copy operation which means all your curren
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_this_label"></a> [this\_label](#module\_this\_label) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.0 |
-| <a name="module_this_label_snapshot"></a> [this\_label\_snapshot](#module\_this\_label\_snapshot) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.0 |
+| <a name="module_this_label"></a> [this\_label](#module\_this\_label) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.1 |
+| <a name="module_this_label_snapshot"></a> [this\_label\_snapshot](#module\_this\_label\_snapshot) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.1 |
 
 ## Resources
 
