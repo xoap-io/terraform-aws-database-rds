@@ -136,15 +136,16 @@ Please be aware that this is mainly a copy operation which means all your curren
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_backup"></a> [backup](#input\_backup) | The backup configuration for the RDS instance | <pre>object({<br>    enabled        = bool<br>    retention_days = number<br>  })</pre> | n/a | yes |
-| <a name="input_context"></a> [context](#input\_context) | Default context for naming and tagging purpose | <pre>object({<br>    organization = string<br>    environment  = string<br>    account      = string<br>    product      = string<br>    tags         = map(string)<br>  })</pre> | n/a | yes |
+| <a name="input_backup"></a> [backup](#input\_backup) | The backup configuration for the RDS instance | <pre>object({<br/>    enabled        = bool<br/>    retention_days = number<br/>  })</pre> | n/a | yes |
+| <a name="input_backup_kms_key"></a> [backup\_kms\_key](#input\_backup\_kms\_key) | The  backup kms key for AWS RDS | `string` | n/a | yes |
+| <a name="input_context"></a> [context](#input\_context) | Default context for naming and tagging purpose | <pre>object({<br/>    organization = string<br/>    environment  = string<br/>    account      = string<br/>    product      = string<br/>    tags         = map(string)<br/>  })</pre> | n/a | yes |
 | <a name="input_enable_performance_insights"></a> [enable\_performance\_insights](#input\_enable\_performance\_insights) | Whether to enable Performance Insights | `bool` | n/a | yes |
-| <a name="input_instance"></a> [instance](#input\_instance) | The RDS instance to create | <pre>object({<br>    type                 = string<br>    engine               = string<br>    engine_version       = string<br>    major_engine_version = string<br>    family               = string<br>    multi_az             = bool<br>    publicly_accessible  = bool<br>    deletion_protection  = bool<br>    allow_upgrades       = bool<br>    port                 = number<br>  })</pre> | n/a | yes |
-| <a name="input_logging"></a> [logging](#input\_logging) | The logging configuration for the RDS instance | <pre>object({<br>    enabled = bool<br>    types   = set(string)<br>  })</pre> | n/a | yes |
+| <a name="input_instance"></a> [instance](#input\_instance) | The RDS instance to create | <pre>object({<br/>    type                 = string<br/>    engine               = string<br/>    engine_version       = string<br/>    major_engine_version = string<br/>    family               = string<br/>    multi_az             = bool<br/>    publicly_accessible  = bool<br/>    deletion_protection  = bool<br/>    allow_upgrades       = bool<br/>    port                 = number<br/>  })</pre> | n/a | yes |
+| <a name="input_logging"></a> [logging](#input\_logging) | The logging configuration for the RDS instance | <pre>object({<br/>    enabled = bool<br/>    types   = set(string)<br/>  })</pre> | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the RDS instance | `string` | n/a | yes |
 | <a name="input_parameters"></a> [parameters](#input\_parameters) | The parameters to pass to the RDS instance | `map(string)` | n/a | yes |
-| <a name="input_storage"></a> [storage](#input\_storage) | The storage configuration for the RDS instance | <pre>object({<br>    max_allocated_storage = number<br>    allocated_storage     = number<br>    kms_arn               = string<br>  })</pre> | n/a | yes |
-| <a name="input_vpc"></a> [vpc](#input\_vpc) | The VPC to create the RDS instance in | <pre>object({<br>    id              = string<br>    subnets         = list(string)<br>    security_groups = list(string)<br>  })</pre> | n/a | yes |
+| <a name="input_storage"></a> [storage](#input\_storage) | The storage configuration for the RDS instance | <pre>object({<br/>    max_allocated_storage = number<br/>    allocated_storage     = number<br/>    kms_arn               = string<br/>  })</pre> | n/a | yes |
+| <a name="input_vpc"></a> [vpc](#input\_vpc) | The VPC to create the RDS instance in | <pre>object({<br/>    id              = string<br/>    subnets         = list(string)<br/>    security_groups = list(string)<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 

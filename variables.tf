@@ -33,6 +33,10 @@ variable "storage" {
   })
   description = "The storage configuration for the RDS instance"
 }
+variable "backup_kms_key" {
+  type        = string
+  description = "The  backup kms key for AWS RDS"
+}
 variable "backup" {
   type = object({
     enabled        = bool
